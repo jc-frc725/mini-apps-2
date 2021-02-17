@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import EventList from './EventList';
 import axios from 'axios';
 
 const Finder = () => {
   const [query, setQuery] = useState('');
+  const [events, setEvents] = useState([]);
 
   const handleSubmit = (event) => {
-    axios.get(`/events?q=${query}`)
+    axios.get(`/events?_page=1&_limit=10?q=${query}`)
       .then(({ data }) => {
-        console.log(data);
+        setEvents(data);
+        console.log(events);
       })
       .catch(error => console.error(error));
     event.preventDefault();
@@ -21,6 +24,7 @@ const Finder = () => {
         <input type="text" value={query} onChange={() => setQuery(event.target.value)}></input>
         <button>Search</button>
       </form>
+      <EventList events={events}/>
     </div>
   );
 };
