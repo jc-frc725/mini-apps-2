@@ -1,0 +1,28 @@
+{
+  "name": "challenge_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch data/db.json",
+    "build-dev": "webpack -w --config ./webpack.config.js --mode='development'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justin Chow",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "json-server": "^0.16.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-paginate": "^7.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.22.0",
+    "webpack-cli": "^4.5.0"
+  }
+}
