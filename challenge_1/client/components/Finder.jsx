@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import EventList from './EventList';
+import Controller from './Controller';
 import axios from 'axios';
 
 const Finder = () => {
@@ -7,7 +7,8 @@ const Finder = () => {
   const [events, setEvents] = useState([]);
 
   const handleSubmit = (event) => {
-    axios.get(`/events?_page=1&_limit=10?q=${query}`)
+    // different data based on page #
+    axios.get(`/events?_page=2?q=${query}`)
       .then(({ data }) => {
         setEvents(data);
         console.log(events);
@@ -24,7 +25,7 @@ const Finder = () => {
         <input type="text" value={query} onChange={() => setQuery(event.target.value)}></input>
         <button>Search</button>
       </form>
-      <EventList events={events}/>
+      <Controller events={events}/>
     </div>
   );
 };

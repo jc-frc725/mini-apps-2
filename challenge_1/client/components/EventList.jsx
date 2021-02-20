@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-const EventList = ({ events }) => {
-  
+const EventList = ({ eventList }) => {
+  // pages = number of events / desired items per page (limit)
   return (
     <div className="eventsList">
       <ul>
-        {events.map((event, index) => {
-          <liv key={index}>{event.description}</liv>
+        {eventList.map((event, index) => {
+          <li key={index}>{event.description}</li>
         })}
       </ul>
     </div>
